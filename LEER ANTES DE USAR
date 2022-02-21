@@ -1,0 +1,7 @@
+
+PARA QUE FUNCIONE LA API VAS A NECESITAR
+
+npm install
+
+luego npm start(para correrlo en 1 instancia)
+npm run debug (en modo desarrollo que se recarga solo con cambios)
