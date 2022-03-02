@@ -1,9 +1,12 @@
 const express = require('express')
 const app = express()
-const {controller} = require('./controlador')
-const {agregar} = require('./agregar')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+
+const {creacionUsuarioscontroller} = require('./controladores/crear.controller.js')
+const {borradoUsuarioscontroller} = require('./controladores/borrar.controller.js')
+const {listadoUsuarioscontroller} = require('./controladores/listado.controller.js')
+const {buscarUsuariocontroller} = require('./controladores/listaruno.controller.js')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
@@ -12,8 +15,10 @@ app.use(cors())
 app.use(bodyParser.json())
 
 
-app.get('/',cors(), controller) 
-app.post('/', agregar)
+app.post('/add',cors(),creacionUsuarioscontroller ) 
+app.delete('/delete',cors(),borradoUsuarioscontroller ) 
+app.get('/all',cors(),listadoUsuarioscontroller ) 
+app.get('/getone',cors(),buscarUsuariocontroller ) 
 
 
 app.listen(3000)
